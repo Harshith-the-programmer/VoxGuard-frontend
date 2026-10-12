@@ -816,8 +816,8 @@ export default function App() {
 
     async function initialize() {
       const [ai, backend] = await Promise.allSettled([
-        fetch("/ai/health"),
-        fetch("/backend/health"),
+        fetch(`${import.meta.env.VITE_AI_URL}/health`),
+        fetch(`${import.meta.env.VITE_BACKEND_URL}/api/health`),
       ]);
 
       if (!active) return;
