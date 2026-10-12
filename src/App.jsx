@@ -802,7 +802,7 @@ export default function App() {
     setHistoryBusy(true);
 
     try {
-      const data = await api("/audio/history");
+      const data = await api("/api/audio/history");
       setHistory(asList(data));
     } catch (e) {
       setNotice(`Unable to load saved recordings: ${e.message}`);
@@ -856,7 +856,7 @@ export default function App() {
         }
 
         try {
-          const data = await api("/audio/history");
+          const data = await api("/api/audio/history");
           if (active) setHistory(asList(data));
         } catch (e) {
           if (active) {
@@ -956,7 +956,7 @@ export default function App() {
         const upload = new FormData();
         upload.append("file", selectedFile);
 
-        const uploadResponse = await api("/audio/upload", {
+        const uploadResponse = await api("/api/audio/upload", {
           method: "POST",
           body: upload,
         });
@@ -968,7 +968,7 @@ export default function App() {
         }
 
         const analysisResponse = await api(
-          `/audio/${audioId}/analysis`,
+          `/api/audio/${audioId}/analysis`,
           { method: "POST" },
         );
 
