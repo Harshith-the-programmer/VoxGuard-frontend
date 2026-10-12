@@ -468,7 +468,7 @@ function AuthModal({ mode, setMode, onClose, onSuccess }) {
       const isLogin = mode === "login";
 
       const data = await api(
-        isLogin ? "/auth/login" : "/auth/register",
+        isLogin ? "/api/auth/login" : "/api/auth/register",
         {
           method: "POST",
           body: JSON.stringify(
